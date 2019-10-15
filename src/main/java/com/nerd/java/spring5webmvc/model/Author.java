@@ -17,7 +17,7 @@ public class Author {
     private String firstName;
     private String lastName;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name="Author_Book", joinColumns = {@JoinColumn(name="book_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name="author_id", referencedColumnName = "id")})
     private Set<Book> books  = new HashSet<>();
